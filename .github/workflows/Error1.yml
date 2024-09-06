@@ -2,16 +2,17 @@ name: Error1
 
 on:
   push:
-    branches: 
+    branches:
       - "main"
   pull_request:
-    branches: 
+    branches:
       - "main"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.os }}
     steps:
       - uses: actions/checkout@v4
+
       - name: Run a one-line script
-        run: echo Hello, ${{ secrets.SURNAME }}!
+        run: echo Hello, ${{ inputs.surname }}!
