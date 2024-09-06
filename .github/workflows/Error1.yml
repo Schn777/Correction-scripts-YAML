@@ -1,1 +1,17 @@
-name: Error1 # Contrôler quand le workflow va s’exécuter on: # Déclenche le workflow quand il y a un push ou un pull request sur la branche “main” push: branches: [ "main" ] pull_request: branches: [ "main" ] jobs: # Ce workflow contient un seul job appelé “build” build: runs-on: ${{ inputs.os }} steps:- uses: actions/checkout@v4- name: Run a one-line script run: eho Hello, ${{ inputs.surname }}!
+name: Error1
+
+on:
+  push:
+    branches: 
+      - "main"
+  pull_request:
+    branches: 
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello, ${{ secrets.SURNAME }}!
