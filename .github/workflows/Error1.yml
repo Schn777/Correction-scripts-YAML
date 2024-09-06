@@ -10,9 +10,9 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ inputs.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Run a one-line script
-        run: echo Hello, ${{ inputs.surname }}!
+        run: echo Hello, ${{ github.actor }}!
